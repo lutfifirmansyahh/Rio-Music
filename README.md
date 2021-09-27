@@ -1,7 +1,5 @@
-<h2 align="centre">☄️ Kennedy X Music ☄️</h2>
+<h2 align="centre">☄️ Rio  Music ☄️</h2>
 
-### Music bot for playing music on telegram voice chat group.
-<p align="center"><a href="https://t.me/KennedyXRobot"><img src="https://telegra.ph/file/8008bce98aa5c60f9b37a.png" width="300"></a></p>
 
 <h3>Requirements 📝</h3>
 
@@ -52,12 +50,10 @@
 ## Heroku Deployment 
 The easy way to host this bot, deploy to Heroku
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/KennedyProject/KennedyXMusic)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/RioProjectX/Rio-Music)
 
 ### Credits ✨
-- [Kennedy](https://github.com/KennedyProject) Developer
-- [RojSerBest](https://github.com/rojserbest) CallsMusic Developer
-- [Levina](https://github.com/levina-lab) Veez Project
-
+- [Rio](https://github.com/RioProjectX) Developer
+- [Ken](https://github.com/KennedyProject) 
 ### Support & Updates ✨
-<a href="https://t.me/kenbotsupport"><img src="https://img.shields.io/badge/Join-Group%20Support-red.svg?style=for-the-badge&logo=Telegram"></a> <a href="https://t.me/KennedyProject"><img src="https://img.shields.io/badge/Join-Updates%20Channel-white.svg?style=for-the-badge&logo=Telegram"></a>
+<a href="https://t.me/riogroupsupport"><img src="https://img.shields.io/badge/Join-Group%20Support-red.svg?style=for-the-badge&logo=Telegram"></a> <a href="https://t.me/riobotsupport"><img src="https://img.shields.io/badge/Join-Updates%20Channel-white.svg?style=for-the-badge&logo=Telegram"></a>

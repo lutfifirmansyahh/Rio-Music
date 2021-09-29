@@ -37,6 +37,7 @@
         "BOT_IMG": {
             "description": "Gambar untuk Pesan /alive ya",
             "required": false,
+             "value": "masukin link telegraph"
         },
         "THUMB_IMG": {
             "description": "fill with costum thumbnail image it's different with bg_image",

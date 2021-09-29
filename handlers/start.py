@@ -32,10 +32,20 @@ async def _human_time_duration(seconds):
 @Client.on_message(command("start") & filters.private & ~filters.edited)
 async def start_(client: Client, message: Message):
     await message.reply_text(
-        f"""<b>🕊️ **Hallo, saya {message.from_user.mention}** \n
-💭 **[{BOT_NAME}](https://t.me/{BOT_USERNAME}) Adalah sebuah bot yang dirancang untuk memutar musik di obrola suara !**
-💡 **Untuk melihat beberapa perintah dalam penggunaan bot bisa klik » 📚 Commands !**
-❓ **Atau info lebih lanjut bisa mengetik /help**
+        f"""<b> *Halo Cakep. \n
+Saya Bot Music Group, Yang Bisa Memutar Lagu Dengan Cepat di Voice Chat Group Dengan Cara Yang Mudah
+Saya Memiliki Banyak Fitur Praktis Seperti :
+┏━━━━━━━━━━━━━━
+┣• Memutar Musik.
+┣• Mendownload Lagu.
+┣• Melihat Lirik Lagu.
+┣• Mempunyai Banyak Modul Menarik.
+┣• Sekaligus Bisa Mengatur Groupmu.
+┣• Gunakan Perintah » /help « untuk Mengetahui Fitur Lengkap Saya
+┗━━━━━━━━━━━━━━
+❃ Project By [Rio Cute](https://t.me/riio00)
+❃ Terimakasih Telah Menggunakan Project Ini! [{OWNER_NAME}](https://t.me/{OWNER_NAME})
+━━━━━━━━━━━━━━━*
 </b>""",
         reply_markup=InlineKeyboardMarkup(
             [ 
@@ -44,16 +54,19 @@ async def start_(client: Client, message: Message):
                         "➕ Add me to your Group ➕", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")
                 ],[
                     InlineKeyboardButton(
-                        "❓ How to use Me", callback_data="cbhowtouse"
+                         "🛠 Repo", url="http://github.com/RioProjectX/Rio-Music"
                     ),
                     InlineKeyboardButton(
-                        "✨ Donate", url=f"https://t.me/{OWNER_NAME}")
+                        "🐥 Pemilik Bot", url=f"https://t.me/{OWNER_NAME}")
                 ],[
                     InlineKeyboardButton(
-                        "👥 Official Group", url=f"https://t.me/{GROUP_SUPPORT}"
+                        "👥 Official Group", url=f"https://https://t.me/RioGroupSupport"
                     ),
                     InlineKeyboardButton(
-                        "📣 Official Channel", url=f"https://t.me/{UPDATES_CHANNEL}"
+                        "📣 Official Channel", url=f"https://t.me/riobotsupport")
+                ],[
+                    InlineKeyboardButton(
+                        "🤴 Developer", url="https://t.me/riio00"
                     )
                 ]
             ]
@@ -140,12 +153,12 @@ async def ping_pong(client: Client, message: Message):
 async def start(client: Client, message: Message):
     await message.reply_photo(
         photo=f"{BOT_IMAGE}"
-        caption="🕊️ Hey I'm alive for playing music !\n\n🔴 Bot name : Kennedy music\n",
+        caption="🕊️ Hey I'm alive for playing music !\n\n🔴 Bot name : Rio music\n",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "Support", url="https://t.me/Kenbotsupport"
+                        "Support", url="https://t.me/riogroupsupport"
                     )
                 ]
             ]

@@ -1,6 +1,6 @@
 from time import time
 from datetime import datetime
-from config import BOT_IMAGE, BOT_USERNAME, BOT_NAME, ASSISTANT_NAME, OWNER_NAME, UPDATES_CHANNEL, GROUP_SUPPORT
+from config import BOT_USERNAME, BOT_NAME, ASSISTANT_NAME, OWNER_NAME, UPDATES_CHANNEL, GROUP_SUPPORT
 from helpers.filters import command
 from pyrogram import Client, filters
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
@@ -32,7 +32,7 @@ async def _human_time_duration(seconds):
 @Client.on_message(command("start") & filters.private & ~filters.edited)
 async def start_(client: Client, message: Message):
     await message.reply_text(
-        f"""<b> *Halo Cakep. \n
+        f"""<b> **Halo {message.from_user.first_name} Cakep. \n
 Saya Bot Music Group, Yang Bisa Memutar Lagu Dengan Cepat di Voice Chat Group Dengan Cara Yang Mudah
 Saya Memiliki Banyak Fitur Praktis Seperti :
 ┏━━━━━━━━━━━━━━
@@ -40,12 +40,12 @@ Saya Memiliki Banyak Fitur Praktis Seperti :
 ┣• Mendownload Lagu.
 ┣• Melihat Lirik Lagu.
 ┣• Mempunyai Banyak Modul Menarik.
-┣• Sekaligus Bisa Mengatur Groupmu.
+┣• Mencari Lagu Yang ingin di Putar atau di Download.
 ┣• Gunakan Perintah » /help « untuk Mengetahui Fitur Lengkap Saya
 ┗━━━━━━━━━━━━━━
 ❃ Project By [Rio Cute](https://t.me/riio00)
 ❃ Terimakasih Telah Menggunakan Project Ini! [{OWNER_NAME}](https://t.me/{OWNER_NAME})
-━━━━━━━━━━━━━━━*
+━━━━━━━━━━━━━━━**
 </b>""",
         reply_markup=InlineKeyboardMarkup(
             [ 
@@ -54,13 +54,13 @@ Saya Memiliki Banyak Fitur Praktis Seperti :
                         "➕ Add me to your Group ➕", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")
                 ],[
                     InlineKeyboardButton(
-                         "🛠 Repo", url="http://github.com/RioProjectX/Rio-Music"
+                         "🛠 Repo", url="http://github.com/RioProjectX/Rio-Musik"
                     ),
                     InlineKeyboardButton(
                         "🐥 Pemilik Bot", url=f"https://t.me/{OWNER_NAME}")
                 ],[
                     InlineKeyboardButton(
-                        "👥 Official Group", url=f"https://https://t.me/RioGroupSupport"
+                        "👥 Official Group", url=f"https://t.me/riogroupsupport"
                     ),
                     InlineKeyboardButton(
                         "📣 Official Channel", url=f"https://t.me/riobotsupport")
@@ -77,14 +77,11 @@ Saya Memiliki Banyak Fitur Praktis Seperti :
 
 @Client.on_message(command(["start", f"start@{BOT_USERNAME}"]) & filters.group & ~filters.edited)
 async def start(client: Client, message: Message):
-    start = time()
-    m_reply = await message.reply_text("Starting...")
     current_time = datetime.utcnow()
     uptime_sec = (current_time - START_TIME).total_seconds()
     uptime = await _human_time_duration(int(uptime_sec))
-    delta_ping = time() - start
-    await m_reply.edit_text(
-        f"""✅ **Bot sedang aktif**\n\n• **Kecepatan :** `{delta_ping * 1000:.3f} ms`\n<b>• **Uptime bot :**</b> `{uptime}`""",
+    await message.reply_text(
+        f"""✅ **Bot is running Successful**\n\n<b>🎈 **Bot uptime:**</b> `{uptime}`""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -92,7 +89,7 @@ async def start(client: Client, message: Message):
                         "Group", url=f"https://t.me/{GROUP_SUPPORT}"
                     ),
                     InlineKeyboardButton(
-                        "Bantuan", callback_data="cbguide"
+                        "Channel", url=f"https://t.me/{UPDATES_CHANNEL}"
                     )
                 ]
             ]
@@ -102,15 +99,12 @@ async def start(client: Client, message: Message):
 @Client.on_message(command(["help", f"help@{BOT_USERNAME}"]) & filters.group & ~filters.edited)
 async def help(client: Client, message: Message):
     await message.reply_text(
-        f"""<b>👋🏻 **Hello** {message.from_user.mention()}</b>
-**Please press the button below to read the explanation and see the list of available commands !**
-
-💡 Bot by @{UPDATES_CHANNEL}""",
+        f"""<b>👋🏻 Hello {message.from_user.mention()}, please tap the button below to see the help message you can read for using this bot</b>""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        text=" HOW TO USE ME", callback_data=f"cbguide"
+                        text="❔ Cara Menggunakan Saya ❔", url="https://t.me/riogroupsupport"
                     )
                 ]
             ]
@@ -120,16 +114,58 @@ async def help(client: Client, message: Message):
 @Client.on_message(command("help") & filters.private & ~filters.edited)
 async def help_(client: Client, message: Message):
     await message.reply_text(
-        f"""<b>💡 Hello {message.from_user.mention} welcome to the help menu !</b>
-
-**in this menu you can open several available command menus, in each command menu there is also a brief explanation of each command**
-
-💡 Bot by @{UPDATES_CHANNEL}""",
+        f"""<b>Holla Welcome to help menu ✨
+\n📌BAGAIMANA CARA MENGGUNAKAN SAYA ?
+\n1. pertama tambahkan saya ke grup mu.
+2. promote me as admin and give all permission.
+3. kemudian, tambahkan @{ASSISTANT_NAME} ke grupmu atau bisa ketik /userbotjoin.
+3. nyalakan dulu VCG sebelum memutar musik.
+\n📌**perintan untuk semua anggota grup:**
+\n/play (judul lagu) - memutar musik melalui youtube
+/stream (balas ke audio) - memutar musik melalui balas audio
+/playlist - kenunjukan daftar putar
+/current - menunjukan yang sedang diputar saat ini
+/song (judul lagu) - mengunduh musik melalui youtube
+/search (nama video) - mencari video dari youtube secara rinci
+/vsong (nama video) - mengunduh video dari youtube secara rinci
+/vk (judul lagu) - unduh melalui mode inline
+\n📌 **perintah untuk admin:**
+\n/player - membuka panel oengaturan musik
+/pause - jeda pemutaran musik
+/resume - melanjutkan pemutaran musik
+/skip - melompati lagu yang sedang diputar
+/end - menghentikan musik
+/userbotjoin - mengundang assisten ke grup anda
+/reload - untuk memperbarui daftar admin
+/cache - untuk membersihkan cache admin
+/musicplayer (on / off) - mematikan/menghidupkan pemutar musik di grupmu
+\n🎧 channel streaming commands:
+\n/cplay - mendengarkan musik lewat channel
+/cplayer - melihat daftar putar
+/cpause - jeda pemutar musik
+/cresume - melajutkan musik yang di jeda
+/cskip - melompati lagu yang sedang diputar
+/cend - menghentikan lagu
+/admincache - memperbarui cache admin
+\n🧙‍♂️ command for sudo users:
+\n/userbotleaveall - mengeluarkan asisten dari semua grup
+/gcast - mengirim pesan siaran
+\n📌 **commands for fun:**
+\n/lyric - (judul lagu) melihat lirik
+</b>""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "▶️", callback_data="cbguide"
+                        "GROUP", url=f"https://t.me/riogroupsupport"
+                    ),
+                    InlineKeyboardButton(
+                        "CHANNEL", url=f"https://t.me/riobotsupport"
+                    )
+                ],
+                [
+                    InlineKeyboardButton(
+                        "DEVELOPER", url=f"https://t.me/riio00"
                     )
                 ]
             ]
@@ -141,28 +177,22 @@ async def help_(client: Client, message: Message):
 @authorized_users_only
 async def ping_pong(client: Client, message: Message):
     start = time()
-    m_reply = await message.reply_text("pinging...")
+    m_reply = await message.reply_text("_Mengecek Ping_...")
     delta_ping = time() - start
     await m_reply.edit_text(
-        "🏓 **PONG!!**\n"
-        f" `{delta_ping * 1000:.3f} ms`"
+        "**Ping Pong!!**\n"
+        f"🔹 `{delta_ping * 1000:.3f} ms`"
     )
 
 
-@Client.on_message(command(["alive", f"alive@{BOT_USERNAME}"]) & filters.group & ~filters.edited)
-async def start(client: Client, message: Message):
-    await message.reply_photo(
-        photo=f"{BOT_IMAGE}"
-        caption="🕊️ Hey I'm alive for playing music !\n\n🔴 Bot name : Rio music\n",
-        reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton(
-                        "Support", url="https://t.me/riogroupsupport"
-                    )
-                ]
-            ]
-        )
+@Client.on_message(command(["uptime", f"uptime@{BOT_USERNAME}"]) & ~filters.edited)
+@authorized_users_only
+async def get_uptime(client: Client, message: Message):
+    current_time = datetime.utcnow()
+    uptime_sec = (current_time - START_TIME).total_seconds()
+    uptime = await _human_time_duration(int(uptime_sec))
+    await message.reply_text(
+        "🎧 Bot status:\n"
+        f"🔹 **uptime:** `{uptime}`\n"
+        f"🔹 **start time:** `{START_TIME_ISO}`"
     )
-
-        

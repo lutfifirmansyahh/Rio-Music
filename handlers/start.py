@@ -54,7 +54,7 @@ Saya Memiliki Banyak Fitur Praktis Seperti :
                         "➕ Add me to your Group ➕", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")
                 ],[
                     InlineKeyboardButton(
-                         "🛠 Repo", url="http://github.com/RioProjectX/Rio-Musik"
+                         "🛠 Repo", url="http://github.com/RioProjectX/Rio-Music"
                     ),
                     InlineKeyboardButton(
                         "🐥 Pemilik Bot", url=f"https://t.me/{OWNER_NAME}")

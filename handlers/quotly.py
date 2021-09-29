@@ -37,10 +37,10 @@ def isArgInt(message: Message) -> bool:
 @Client.on_message(command(["q", "quotly"]))
 async def quotly_func(client, message: Message):
     if not message.reply_to_message:
-        return await message.reply_text("`Reply ke pesan untuk membuat sticker.`")
+        return await message.reply_text("`Sedang Membuat Sticker.....`")
     if not message.reply_to_message.text:
-        return await message.reply_text("`Reply ke pesan untuk membuat sticker.`")
-    m = await message.reply_text("`Reply ke pesan untuk membuat sticker ....`")
+        return await message.reply_text("`Sedang Membuat Sticker.....`")
+    m = await message.reply_text("`Sedang Membuat Sticker....`")
     if len(message.command) < 2:
         messages = [message.reply_to_message]
 

@@ -584,7 +584,7 @@ async def play(_, message: Message):
 
             while j < 5:
                 toxxt += f"{emojilist[j]} [{results[j]['title'][:25]}](https://youtube.com{results[j]['url_suffix']})\n"
-                toxxt += f" ├ 💡 **Duration** - {results[j]['duration']}\n"
+                toxxt += f" ├ 💡 **Durasi** - {results[j]['duration']}\n"
                 toxxt += f" └ ⚡ __Powered by Rio Music__\n\n"
 
                 j += 1            
@@ -692,7 +692,7 @@ async def ytplay(_, message: Message):
     try:
         user = await USER.get_me()
     except:
-        user.first_name = "GeezProject"
+        user.first_name = "RioProject"
     usar = user
     wew = usar.id
     try:
@@ -973,7 +973,7 @@ async def lol_cb(b, cb):
     if cb.from_user.id != useer_id:
         await cb.answer("Anda bukan orang yang meminta untuk memutar lagu!", show_alert=True)
         return
-    await cb.message.edit("**Processing**")
+    await cb.message.edit("**Memproses , Kalo Delay Sabar Ya Cakep!**")
     x=int(x)
     try:
         useer_name = cb.message.reply_to_message.from_user.first_name

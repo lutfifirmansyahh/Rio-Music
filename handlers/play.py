@@ -39,7 +39,7 @@ def cb_admin_check(func: Callable) -> Callable:
         if cb.from_user.id in admemes:
             return await func(client, cb)
         else:
-            await cb.answer("you not allowed to do this!", show_alert=True)
+            await cb.answer("anda tidak di perbolehkan!", show_alert=True)
             return
     return decorator                                                                       
                                           
@@ -116,7 +116,7 @@ async def playlist(client, message):
         return
     queue = que.get(message.chat.id)
     if not queue:
-        await message.reply_text("**nothing in streaming !**")
+        await message.reply_text("**Tidak sedang memutar !**")
     temp = []
     for t in queue:
         temp.append(t)
@@ -143,9 +143,9 @@ def updated_stats(chat, queue, vol=100):
         if len(que) > 0:
             stats += "\n\n"
             stats += "Volume: {}%\n".format(vol)
-            stats += "Song in queue: `{}`\n".format(len(que))
-            stats += "Now playing: **{}**\n".format(queue[0][0])
-            stats += "Requested by: {}".format(queue[0][1].mention)
+            stats += "Antrian: `{}`\n".format(len(que))
+            stats += "Sedang Memutar: **{}**\n".format(queue[0][0])
+            stats += "Permintaan Dari: {}".format(queue[0][1].mention)
     else:
         stats = None
     return stats
@@ -189,7 +189,7 @@ async def settings(client, message):
         else:
             await message.reply(stats, reply_markup=r_ply("play"))
     else:
-        await message.reply("😕 **voice chat not found**\n\n» please turn on the voice chat first")
+        await message.reply("😕 **Obrolan Suara tidak ditemukan**\n\n» tolong nyalakan terlebih dahulu")
 
 
 @Client.on_message(
@@ -216,22 +216,22 @@ async def hfmm(_, message):
             return
         DISABLED_GROUPS.remove(message.chat.id)
         await lel.edit(
-            f"✅ **music player has been activated in this chat.**\n\n💬 `{message.chat.id}`"
+            f"✅ **Music player behasil diaktifkan.**\n\n💬 `{message.chat.id}`"
         )
 
     elif status == "OFF" or status == "off" or status == "Off":
         lel = await message.reply("`processing...`")
         
         if message.chat.id in DISABLED_GROUPS:
-            await lel.edit("**music player already deactivated.**")
+            await lel.edit("**music player sudah dinonaktifkan.**")
             return
         DISABLED_GROUPS.append(message.chat.id)
         await lel.edit(
-            f"✅ **music player has been deactivated in this chat.**\n\n💬 `{message.chat.id}`"
+            f"✅ **music playyer sudah diaktifkan.**\n\n💬 `{message.chat.id}`"
         )
     else:
         await message.reply_text(
-            "**i'm only know** `/musicplayer on` **and** `/musicplayer off`"
+            "**saya hanya tau** `/musicplayer on` **dan** `/musicplayer off`"
         )
 
 
@@ -252,9 +252,9 @@ async def p_cb(b, cb):
             temp.append(t)
         now_playing = temp[0][0]
         by = temp[0][1].mention(style="md")
-        msg = "**Now playing** in {}".format(cb.message.chat.title)
+        msg = "**Sekarang Memutar** in {}".format(cb.message.chat.title)
         msg += "\n• " + now_playing
-        msg += "\n• Req by " + by
+        msg += "\n• Permintaan " + by
         temp.pop(0)
         if temp:
             msg += "\n\n"
@@ -595,8 +595,8 @@ async def play(_, message: Message):
             emojilist = ["1️⃣","2️⃣","3️⃣","4️⃣","5️⃣"]
             while j < 5:
                 toxxt += f"{emojilist[j]} [{results[j]['title'][:24]}...](https://youtube.com{results[j]['url_suffix']})\n"
-                toxxt += f" ├ 💡 Duration - {results[j]['duration']}\n"
-                toxxt += f" └ ⚡ __Powered by [{bn}](https://t.me/{BOT_USERNAME})__\n\n"
+                toxxt += f" ├ 💡 Durasi - {results[j]['duration']}\n"
+                toxxt += f" └ ⚡ __Powered by Rio Music__\n\n"
                 j += 1            
             keyboard = InlineKeyboardMarkup(
                 [

@@ -50,7 +50,7 @@ async def alive(client: Client, message: Message):
 
 ༄ **Bot : 7.5 LATEST**
 
-༄ **My Master : [Rio](https://t.me/{OWNER_NAME})**
+༄ **My Master : [{OWNER_NAME}](https://t.me/{OWNER_NAME})**
 
 ༄ **Service Uptime : `{uptime}`**
 

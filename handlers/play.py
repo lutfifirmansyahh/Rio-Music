@@ -220,14 +220,14 @@ async def hfmm(_, message):
         )
 
     elif status == "OFF" or status == "off" or status == "Off":
-        lel = await message.reply("`processing...`")
+        lel = await message.reply("`Memproses...`")
         
         if message.chat.id in DISABLED_GROUPS:
             await lel.edit("**music player sudah dinonaktifkan.**")
             return
         DISABLED_GROUPS.append(message.chat.id)
         await lel.edit(
-            f"✅ **music playyer sudah diaktifkan.**\n\n💬 `{message.chat.id}`"
+            f"✅ **music player sudah dinonaktifkan.**\n\n💬 `{message.chat.id}`"
         )
     else:
         await message.reply_text(
@@ -246,7 +246,7 @@ async def p_cb(b, cb):
     if type_ == "playlist":
         queue = que.get(cb.message.chat.id)
         if not queue:
-            await cb.message.edit("**nothing is playing !**")
+            await cb.message.edit("**Tidak Sedang Memutar !**")
         temp = []
         for t in queue:
             temp.append(t)
@@ -326,15 +326,15 @@ async def m_cb(b, cb):
     elif type_ == "playlist":
         queue = que.get(cb.message.chat.id)
         if not queue:   
-            await cb.message.edit("nothing in streaming !")
+            await cb.message.edit("Tidak Sedang Memutar !")
         temp = []
         for t in queue:
             temp.append(t)
         now_playing = temp[0][0]
         by = temp[0][1].mention(style="md")
-        msg = "**Now playing** in {}".format(cb.message.chat.title)
+        msg = "**Sekarang Memutar** in {}".format(cb.message.chat.title)
         msg += "\n• "+ now_playing
-        msg += "\n• Req by "+by
+        msg += "\n• Permintaan dari "+by
         temp.pop(0)
         if temp:
              msg += "\n\n"
@@ -586,10 +586,10 @@ async def play(_, message: Message):
         try:
           results = YoutubeSearch(query, max_results=5).to_dict()
         except:
-          await lel.edit("Give me something to play")
+          await lel.edit("Berikan Sesuatu Untuk Memulai")
         # Looks like hell. Aren't it?? FUCK OFF
         try:
-            toxxt = "**__Choose the song you want to play__**\n\n"
+            toxxt = "**__Pilih Daftar Lagu Yang Ingin Di Dengar__**\n\n"
             j = 0
             useer=user_name
             emojilist = ["1️⃣","2️⃣","3️⃣","4️⃣","5️⃣"]
@@ -632,7 +632,7 @@ async def play(_, message: Message):
                 views = results[0]["views"]
             except Exception as e:
                 await lel.edit(
-                    "❌ **couldn't find song you requested**\n\n» **please provide the correct song name or include the artist's name as well**"
+                    "❌ **Tidak Menemukan Lagu Yang Anda Inginkan**\n\n» **Tolong Berikan Judul Yang Jelas , Contoh : /play Desahan Manja**"
                 )
                 print(str(e))
                 return
@@ -660,7 +660,7 @@ async def play(_, message: Message):
         qeue.append(appendable)
         await message.reply_photo(
             photo="final.png",
-            caption=f"💡 **Track added to queue »** `{position}`\n\n🏷 **Name:** [{title[:40]}]({url})\n⏱ **Duration:** `{duration}`\n🎧 **Request by:** {message.from_user.mention}",
+            caption=f"💡 **Antiran »** `{position}`\n\n🏷 **Nama:** [{title[:40]}]({url})\n⏱ **Durasi:** `{duration}`\n🎧 **Permintaan dari:** {message.from_user.mention}",
             reply_markup=keyboard
         )
     else:
@@ -679,8 +679,8 @@ async def play(_, message: Message):
             return
         await message.reply_photo(
             photo="final.png",
-            caption = f"🏷 **Name:** [{title[:40]}]({url})\n⏱ **duration:** {duration}\n" \
-                    + f"🎧 **Request by:** {r_by.mention} \n",
+            caption = f"🏷 **Nama:** [{title[:40]}]({url})\n⏱ **Durasi:** {duration}\n" \
+                    + f"🎧 **Permintaan Dari:** {r_by.mention} \n",
             reply_markup=keyboard
         )
         os.remove("final.png")
@@ -923,8 +923,8 @@ async def ytplay(_, message: Message):
             return
         await message.reply_photo(
             photo="final.png",
-            caption = f"🏷 **Name:** [{title[:40]}]({url})\n⏱ **duration:** {duration}\n" \
-                    + f"🎧 **Request by:** {r_by.mention} \n",
+            caption = f"🏷 **Nama:** [{title[:40]}]({url})\n⏱ **Durasi:** {duration}\n" \
+                    + f"🎧 **Permintaan Dari:** {r_by.mention} \n",
                     reply_markup=keyboard)
         os.remove("final.png")
         return await lel.delete()

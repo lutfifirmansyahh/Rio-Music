@@ -1,9 +1,9 @@
 {
-    "name": "Rio Music",
-    "logo": "https://telegra.ph/file/73cbefa8401982900fe81.jpg",
-    "description": "Rio Music allow you to stream music trought the telegram voice chat feature.",
+    "name": "Upi Music",
+    "logo": "https://telegra.ph/file/fa0dfdb8a236841c6b957.jpg",
+    "description": "Upi Music allow you to stream music trought the telegram voice chat feature.",
     "keywords": ["music", "voice chat", "telegram"],
-    "repository": "https://github.com/RioProjectX/Rio-Music",
+    "repository": "https://github.com/lutfifirmansyahh/Rio-Music",
     "stack": "container",
     "env": {
         "SESSION_NAME": {

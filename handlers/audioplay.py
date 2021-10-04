@@ -46,7 +46,7 @@ async def stream(_, message: Message):
     if audio:
         if round(audio.duration / 60) > DURATION_LIMIT:
             raise DurationLimitError(
-                f"❎ Tidak dapat memutar lagu lebih dari {DURATION_LIMIT}!"
+                f"❎ gbs muter lagu lebih dri {DURATION_LIMIT}!"
             )
 
         file_name = get_file_name(audio)
@@ -57,14 +57,14 @@ async def stream(_, message: Message):
     elif url:
         file_path = await converter.convert(youtube.download(url))
     else:
-        return await lel.edit_text("❎ anda tidak memberikan saya musik atau link YouTube untuk diputar!")
+        return await lel.edit_text("❎ elokh egk memberikan saya musik atau link YouTube untuk diputer")
 
     if message.chat.id in callsmusic.pytgcalls.active_calls:
         position = await queues.put(message.chat.id, file=file_path)
         await message.reply_photo(
         photo=f"{QUE_IMG}",
         reply_markup=keyboard,
-        caption=f"💡  lagu anda ditambahkan ke **antrian!**\n\n🎧 Atas permintaan {costumer}")
+        caption=f"💡  lagu sia ditambahkan ke **antrian!**\n\n🎧 Atas permintaan {costumer}")
         return await lel.delete()
     else:
         callsmusic.pytgcalls.join_group_call(message.chat.id, file_path)
@@ -72,6 +72,6 @@ async def stream(_, message: Message):
         await message.reply_photo(
         photo=f"{AUD_IMG}",
         reply_markup=keyboard,
-        caption=f"🎧 **sedang memutar** sebuah lagu\n\n🎧 Atas permintaan {costumer}!"
+        caption=f"🎧 **Sedang Memutar** sebuah lagu\n\n🎧 Request dari {costumer}!"
         )
         return await lel.delete()

@@ -22,15 +22,15 @@ async def update_admin(client, message):
     for u in new_ads:
         new_admins.append(u.user.id)
     admins[message.chat.id] = new_admins
-    await message.reply_text("✅ Bot **berhasil dimulai ulang!**\n\n• **Daftar admin** telah **diperbarui**",
+    await message.reply_text("✅ BOT **BERHASIL DIMUAT ULANG!**\n\n• **Daftar atmint** telah **diperbarui**",
     reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "Group", url="https://t.me/ethreborn"
+                        "GROUP", url="https://t.me/ethreborn"
                     ),
                     InlineKeyboardButton(
-                        "Owner", url="https://t.me/fqcxuu"
+                        "OWNER GANTENK", url="https://t.me/fqcxuu"
                     )
                 ]
             ]

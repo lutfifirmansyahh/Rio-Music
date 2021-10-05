@@ -46,7 +46,7 @@ async def stream(_, message: Message):
     if audio:
         if round(audio.duration / 60) > DURATION_LIMIT:
             raise DurationLimitError(
-                f"❎ gbs muter lagu lebih dri {DURATION_LIMIT}!"
+                f"❎ gbs play musik lebih dri {DURATION_LIMIT}!"
             )
 
         file_name = get_file_name(audio)
@@ -64,7 +64,7 @@ async def stream(_, message: Message):
         await message.reply_photo(
         photo=f"{QUE_IMG}",
         reply_markup=keyboard,
-        caption=f"💡  lagu sia ditambahkan ke **antrian!**\n\n🎧 Atas permintaan {costumer}")
+        caption=f"💡  lagu telah ditambahkan ke **antrian!**\n\n🎧 Atas permintaan {costumer}")
         return await lel.delete()
     else:
         callsmusic.pytgcalls.join_group_call(message.chat.id, file_path)

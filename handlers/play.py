@@ -486,7 +486,7 @@ async def play(_, message: Message):
         # lmoa = await client.get_chat_member(chid,wew)
     except:
         await lel.edit(
-            f"<i>{user.first_name} was banned in this group, ask admin to unban @{ASSISTANT_NAME} manually.</i>"
+            f"<i>{user.first_name} terbanned di group, bilang ke admin untuk unban @{ASSISTANT_NAME} manual.</i>"
         )
         return
     text_links=None
@@ -589,14 +589,14 @@ async def play(_, message: Message):
           await lel.edit("Berikan Sesuatu Untuk Memulai")
         # Looks like hell. Aren't it?? FUCK OFF
         try:
-            toxxt = "**__Pilih Daftar Lagu Yang Ingin Di Dengar__**\n\n"
+            toxxt = "**__Pilih Daftar Lagu Yang Ingin Di Putar__**\n\n"
             j = 0
             useer=user_name
             emojilist = ["1️⃣","2️⃣","3️⃣","4️⃣","5️⃣"]
             while j < 5:
                 toxxt += f"{emojilist[j]} [{results[j]['title'][:24]}...](https://youtube.com{results[j]['url_suffix']})\n"
                 toxxt += f" ├ 💡 Durasi - {results[j]['duration']}\n"
-                toxxt += f" └ ⚡ __Powered by Rio Music__\n\n"
+                toxxt += f" └ ⚡ __Powered by [Upi](https://t.me/fqcxuu)__\n\n"
                 j += 1            
             keyboard = InlineKeyboardMarkup(
                 [

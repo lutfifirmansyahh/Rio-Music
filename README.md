@@ -1,4 +1,4 @@
-<h2 align="centre">☄️ Rio  Music ☄️</h2>
+<h2 align="centre">☄️ Upi  Music ☄️</h2>
 
 
 <h3>Requirements 📝</h3>

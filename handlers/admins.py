@@ -22,7 +22,7 @@ async def update_admin(client, message):
     for u in new_ads:
         new_admins.append(u.user.id)
     admins[message.chat.id] = new_admins
-    await message.reply_text("✅ BOT **BERHASIL DIMUAT ULANG!**\n\n• **Daftar atmint** telah **diperbarui**",
+    await message.reply_text(" ✅ **BOT DIMUAT ULANG!**\n\n• ✅ **DAFTAR ADMIN** TELAH **DIPERBARUI**",
     reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -46,10 +46,10 @@ async def pause(_, message: Message):
     if (chat_id not in callsmusic.pytgcalls.active_calls) or (
         callsmusic.pytgcalls.active_calls[chat_id] == "paused"
     ):
-        await message.reply_text("❎ Sedang tidak memutar lagu")
+        await message.reply_text("❎ SEDANG TIDAK MEMUTAR LAGU")
     else:
         callsmusic.pytgcalls.pause_stream(chat_id)
-        await message.reply_text("▶️ musik dijeda!")
+        await message.reply_text("▶️ MUSIK DIJEDA!")
 
 
 @Client.on_message(command("resume") & other_filters)
@@ -60,10 +60,10 @@ async def resume(_, message: Message):
     if (chat_id not in callsmusic.pytgcalls.active_calls) or (
         callsmusic.pytgcalls.active_calls[chat_id] == "playing"
     ):
-        await message.reply_text("❎ Tidak ada musik yang dijeda!")
+        await message.reply_text("❎ TIDAK ADA MUSIK YANG DIJEDA!")
     else:
         callsmusic.pytgcalls.resume_stream(chat_id)
-        await message.reply_text("⏸ musik dilanjutkan!")
+        await message.reply_text("⏸ MUSIK DILANJUTKAN!")
 
 
 @Client.on_message(command("end") & other_filters)
